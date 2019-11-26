@@ -26,4 +26,9 @@
     /* box-sizing: border-box; */
     border:0.5px black solid;
     margin: -0.5px;
+    background-color:white;
+}
+
+.option{
+    height:5vh;
 }

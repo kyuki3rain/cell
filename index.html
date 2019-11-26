@@ -10,23 +10,29 @@
     <link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
 <body>
-    <div id="prop">
+    <div class="option" id="prop">
         <input type="text" class="num" id="colP" value="40">
         <input type="text" class="num" id="rowP" value="80">
         <select id="endType">
-            <option value="0">loop</option>
             <option value="1">0</option>
+            <option value="0">loop</option>
+        </select>
+        <select id="gameMode">
+            <option value="1">extra L</option>
+            <option value="0">normal</option>
         </select>
         <button id="propChange">変更</button>
     </div>
     <div id="area">
 
     </div>
-    <button id="start">Start</button>
-    <button id="stop">Stop</button>
-    <!-- <button id="prev">Prev</button>
-    <button id="next">Next</button> -->
+    <div class="option" id="control">
+        <button id="start">Start</button>
+        <button id="stop">Stop</button>
+        <input rype="text" class="num" id="speed" value="10">
+        <button id="rand">10*10</button>
+        <!-- <button id="prev">Prev</button>
+        <button id="next">Next</button> -->
+    </div>
 </body>
 </html>
-
-<!-- 5522 -->
