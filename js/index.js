@@ -71,8 +71,8 @@ function startGame(){
                     }
                 }
                 // console.log(psum);
-                if(psum===2&&psum2<6)nextP[i][j]=p[i][j];
-                else if(psum===3&&psum2<6){
+                if(psum===2&&psum2<5)nextP[i][j]=p[i][j];
+                else if(psum===3&&psum2<5){
                     // if(gameMode===1 && endType===0 &&(p[mod(i,p.length)][mod((j+1),p[i].length)]+p[mod(i+1,p.length)][mod((j+1),p[i].length)]+p[mod(i-1,p.length)][mod((j+1),p[i].length)]===3
                     // || p[mod(i,p.length)][mod((j-1),p[i].length)]+p[mod(i+1,p.length)][mod((j-1),p[i].length)]+p[mod(i-1,p.length)][mod((j-1),p[i].length)]===3
                     // || p[mod(i+1,p.length)][mod(j,p[i].length)]+p[mod(i+1,p.length)][mod(j-1,p[i].length)]+p[mod(i+1,p.length)][mod((j+1),p[i].length)]===3
@@ -100,7 +100,7 @@ function startGame(){
                     }
                 }
                 else {
-                    if(gameMode===1 && endType===0 && psum===1 && psum2<16){
+                    if(gameMode===1 && endType===0 && psum===1 && psum2<7){
                         if(p[mod(i,p.length)][mod((j+1),p[i].length)]+p[mod(i,p.length)][mod((j+2),p[i].length)]+p[mod(i-1,p.length)][mod((j+2),p[i].length)]===3){
                             console.log(i,j);
                             nextP[i][j]=1;
@@ -127,7 +127,7 @@ function startGame(){
                         }
                         else nextP[i][j]=0;
                     }
-                    else if(gameMode===1 && endType===1 && psum===1 && psum2<6){
+                    else if(gameMode===1 && endType===1 && psum===1 && psum2<7){
                         if(j+2<p[i].length&&i-1>=0)if(p[i][j+1]+p[i][j+2]+p[i-1][j+2]===3){
                             console.log(i,j);
                             nextP[i][j]=1;
@@ -166,6 +166,9 @@ function startGame(){
         }
         p=nextP;
         preAr=JSON.parse(JSON.stringify(nowAr));
+        for(let k=0;k<preAr[0].length;k++){
+            $(`.row${preAr[0][k]}` + `.col${preAr[1][k]}`).css("background-color","yellow");
+        }
         // console.log(preAr);
 
     },10000/Number($("#speed").val()));
@@ -177,7 +180,8 @@ function stopGame(){
 }
 
 function rand1010(){
-    for(let i=(p.length-10)/2;i<(p.length-10)/2+10;i++)for(let j=(p[0].length-10)/2;j<(p[0].length-10)/2+10;j++){
+    let s=10;
+    for(let i=(p.length-s)/2;i<(p.length-s)/2+s;i++)for(let j=(p[0].length-s)/2;j<(p[0].length-s)/2+s;j++){
         p[i][j]=Math.floor(Math.random()*2);
         $(`.row${i}` + `.col${j}`).css("background-color",(p[i][j])?"black":"white");
     }
