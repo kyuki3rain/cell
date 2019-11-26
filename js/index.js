@@ -5,6 +5,8 @@ let p=[];
 let dx=[0,1,1,1,0,-1,-1,-1];
 let dy=[1,1,0,-1,-1,1,0,-1];
 
+function mod(a,b){return(a*b<0)*b+a%b}
+
 function setArea(){
     let row = $("#rowP").val();
     let col = $("#colP").val();
@@ -24,17 +26,25 @@ let code;
 
 function startGame(){
     code = setInterval(function(){
+        console.log($("#endType").val());
         let nextP=[];
         for(i=0;i<p.length;i++){
             nextP[i]=[];
             for(j=0;j<p[i].length;j++){
-                if(i*j===0||i===p.length-1||j===p[i].length-1){
-                    nextP[i][j]=p[i][j];
-                    continue;
+                if($("#endType").val()==1){
+                    if(i*j===0||i===p.length-1||j===p[i].length-1){
+                        nextP[i][j]=p[i][j];
+                        continue;
+                    }
                 }
                 let psum=0;
                 for(let k=8;k--;){
-                    psum+=p[i+dx[k]][j+dy[k]]; 
+                    if($("#endType").val()==0){
+                        psum+=p[mod((i+dx[k]),p.length)][mod((j+dy[k]),p[i].length)];
+                    }
+                    else{
+                        psum+=p[i+dx[k]][j+dy[k]];
+                    }
                 }
                 if(psum===2)nextP[i][j]=p[i][j];
                 else if(psum===3)nextP[i][j]=1;
@@ -44,7 +54,7 @@ function startGame(){
         }
         p=nextP;
         console.log(p);
-    },500);
+    },200);
 }
 
 function stopGame(){

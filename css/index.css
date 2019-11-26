@@ -1,8 +1,15 @@
 #area{
     display:flex;
     flex-direction:row;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center; */
+    align-items: start;
+    width:90vw;
+    height:90vh;
+    box-sizing:border-box;
+    padding:20px;
+    border:2px black solid;
+    overflow:scroll;
+    margin:0 auto;
 }
 
 .row{
@@ -16,10 +23,7 @@
 .col{
     width:20px;
     height:20px;
-    box-sizing: border-box;
-    border:1px black solid;
-}
-
-#area{
-    margin:20px auto;
+    /* box-sizing: border-box; */
+    border:0.5px black solid;
+    margin: -0.5px;
 }
