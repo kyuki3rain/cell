@@ -71,8 +71,8 @@ function startGame(){
                     }
                 }
                 // console.log(psum);
-                if(psum===2&&psum2<4)nextP[i][j]=p[i][j];
-                else if(psum===3&&psum2<4){
+                if(psum===2&&psum2<6)nextP[i][j]=p[i][j];
+                else if(psum===3&&psum2<6){
                     // if(gameMode===1 && endType===0 &&(p[mod(i,p.length)][mod((j+1),p[i].length)]+p[mod(i+1,p.length)][mod((j+1),p[i].length)]+p[mod(i-1,p.length)][mod((j+1),p[i].length)]===3
                     // || p[mod(i,p.length)][mod((j-1),p[i].length)]+p[mod(i+1,p.length)][mod((j-1),p[i].length)]+p[mod(i-1,p.length)][mod((j-1),p[i].length)]===3
                     // || p[mod(i+1,p.length)][mod(j,p[i].length)]+p[mod(i+1,p.length)][mod(j-1,p[i].length)]+p[mod(i+1,p.length)][mod((j+1),p[i].length)]===3
@@ -100,7 +100,7 @@ function startGame(){
                     }
                 }
                 else {
-                    if(gameMode===1 && endType===0 && psum===1 && psum<6){
+                    if(gameMode===1 && endType===0 && psum===1 && psum2<16){
                         if(p[mod(i,p.length)][mod((j+1),p[i].length)]+p[mod(i,p.length)][mod((j+2),p[i].length)]+p[mod(i-1,p.length)][mod((j+2),p[i].length)]===3){
                             console.log(i,j);
                             nextP[i][j]=1;
@@ -127,7 +127,7 @@ function startGame(){
                         }
                         else nextP[i][j]=0;
                     }
-                    else if(gameMode===1 && endType===1 && psum===1 && psum2<4){
+                    else if(gameMode===1 && endType===1 && psum===1 && psum2<6){
                         if(j+2<p[i].length&&i-1>=0)if(p[i][j+1]+p[i][j+2]+p[i-1][j+2]===3){
                             console.log(i,j);
                             nextP[i][j]=1;
